@@ -42,4 +42,4 @@ Summary (Ease of use)
 | ------------- | ------------- | ------------- |
 | Django  | :star: :star:  |  :star: :star: :star: :star: :star: |
 | Flask |  :star: :star: :star: :star:  |  :star: :star: :star: :star:  |
-| FAST API | C :star: :star: :star: :star:  |  :star: :star:  |
+| FAST API | :star: :star: :star: :star:  |  :star: :star:  |
