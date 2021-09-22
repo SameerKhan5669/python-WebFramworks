@@ -12,21 +12,21 @@ We begin with the pros and cons of each framework:
 
 1. Django: 
 
-| pros  | Cons |
+| Pros  | Cons |
 | --- | --- |
 | Efficient code structure, easy to add functionality  | Previous versions needs to be compatible with new releases  |
 | Has DFR for REST Framework, easing web API builds  | Simple inheritance only i.e. no mixins  |
 
 2. Flask: 
 
-| pros  | Cons |
+| Pros  | Cons |
 | ------------- | ------------- |
 | Beginner friendly, quick and easy to get started.  |  Use of modules can result in security breaches |
 | Flexible and customizable, most parts can be changed.  | Handles requests in turns, so for multiple immedite requests it can be slow  |
 
 3. FAST API: 
 
-| pros  | Cons |
+| Pros  | Cons |
 | ------------- | ------------- |
 | Always validates data types, even in deeply nested JSON requests  |  Relatively new, lack of detailed external resources|
 | Built on standards, JSON, OAuth 2.0, & OpenAPI  |  Everything tied to main file, making it very crowded|
