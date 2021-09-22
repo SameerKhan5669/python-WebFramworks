@@ -36,7 +36,3 @@ We begin with the pros and cons of each framework:
 | ------------- | ------------- |
 | Always validates data types, even in deeply nested JSON requests  |  Relatively new, lack of detailed external resources|
 | Built on standards, JSON, OAuth 2.0, & OpenAPI  |  Everything tied to main file, making it very crowded|
-
-|  R |  Python |    Matlab |
-| --------- |:---|:---------|:-----|
-| library(tidyverse) |import numpy as np|
