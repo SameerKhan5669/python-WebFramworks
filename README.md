@@ -40,6 +40,6 @@ Summary (Ease of use)
 
 | Framework  | Ease of use | Resources |
 | ------------- | ------------- | ------------- |
-| Django  | :start: :start:  |  :start: :start: :start: :start: :start: |
-| Flask |  :start: :start: :start: :start:  |  :start: :start: :start: :start:  |
-| FAST API | C :start: :start: :start: :start:  |  :start: :start:  |
+| Django  | :star: :star:  |  :star: :star: :star: :star: :star: |
+| Flask |  :star: :star: :star: :star:  |  :star: :star: :star: :star:  |
+| FAST API | C :star: :star: :star: :star:  |  :star: :star:  |
