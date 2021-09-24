@@ -18,7 +18,7 @@ We begin with the pros and cons of each framework:
 | Pros  | Cons |
 | --- | --- |
 | Efficient code structure, easy to add functionality  | Previous versions needs to be compatible with new releases  |
-| Has DFR for REST Framework, easing web API builds  | Simple inheritance only i.e. no mixins  |
+| Has DRF for REST Framework, easing web API builds  | Simple inheritance only i.e. no mixins  |
 
 **2. Flask:** 
 
