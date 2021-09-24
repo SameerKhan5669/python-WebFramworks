@@ -4,11 +4,11 @@ Welcome, here we will be comparing three python web-frameworks: Django, Flask, a
 
 For the basics, here are the traditional 'main' use cases of each framework: 
 
-Django: Great for using with a nice GUI, also for database dependency, and lastly, for when a simple but intuitive admin interface is required. 
+**Django:** Great for using with a nice GUI, also for database dependency, and lastly, for when a simple but intuitive admin interface is required. 
 
-Flask: perfect for simpler services and when a few API Endpoints are all thats required.
+**Flask:** perfect for simpler services and when a few API Endpoints are all thats required.
 
-FAST API: When performance and development speeds are of focus, this newer framework is a common choice. 
+**FAST API:** When performance and development speeds are of focus, this newer framework is a common choice. 
 
 **Pros and Cons:**
 We begin with the pros and cons of each framework: 
