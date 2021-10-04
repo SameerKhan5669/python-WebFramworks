@@ -52,7 +52,7 @@ Summary (Ease of use & learning)
 
 
 
-**Serialization:** We now look at serialization, which is the process of taking complex querysets and converting them into native Python datatypes. The Django Rest Framework (DRF) provides a serializer class for controlling output of responses. For flask there are options available but not as integrated as Django. Lastly, a similar example applies for FAST API, however, there is a lack of info.
+**Serialization:** We now look at serialization, which is the process of taking complex querysets and converting them into native Python datatypes. The Django Rest Framework (DRF) provides a serializer class for controlling output of responses. For flask and FAST API there are options available but not as integrated as Django.
 
 Summary (Serialization)
 
@@ -60,7 +60,7 @@ Summary (Serialization)
 | ------------- | ------------- |
 | Django  | :star: :star: :star: :star: :star: |  
 | Flask |  :star: :star: :star: |  
-| FAST API | :star:  | 
+| FAST API | :star: :star: :star:| 
 
 
 **ORM (Object Relational Mapping):** Django has its own ORM which is simple but very powerful, however it only works with relational databases, so in other cases, you will need a different ORM and Django will cause pain for you. Flask on the other hand, does not provide anything built in, and forces you to chose, this can result in problems as there are more moving pieces that you have to deal with. FAST API seems to have the flask use case, however it seems to have fewer mentions of problems or errors with other ORM's such as SQLAlchemy or Peewee
@@ -112,6 +112,93 @@ Summary (DB Migrations)
 | Django  | :star: :star: :star: :star:  |  
 | Flask |  :star: :star: |  
 | FAST API | :star: :star: | 
+
+
+**Code structur and  flexibility:** Django provides more features, however is less flexible, while Flask and FAST API are very flixible
+
+Summary (DB Migrations)
+
+| Framework  | DB Migrations | 
+| ------------- | ------------- |
+| Django  | :star: :star:  |  
+| Flask |  :star: :star: :star: :star: :star: |  
+| FAST API | :star: :star: :star: :star:  | 
+
+
+**Questions from previous huddle:** 
+
+FAST API main file crowded: 
+
+So yes this is true becuase everything needs to be tied inside of your the main file. 
+
+For instance: 
+
+```
+app = FastAPI()
+
+app.include_router(users.router)
+app.include_router(items.router)
+app.include_router(shops.router)
+app.include_router(other.router)
+
+@app.exception_handler(SomeException)
+async def http_exception_handler(request: Request, exc: SomeException) -> PlainTextResponse:
+    return PlainTextResponse(str(exc.detail), status_code=exc.status_code)
+
+@app.exception_handler(SomeOtherException)
+async def http_exception_handler(request: Request, exc: SomeOtherException) -> PlainTextResponse:
+    return PlainTextResponse(str(exc.detail), status_code=exc.status_code)
+```
+
+Now say we have 20 routers and 50 exceptions, we will have a very large file. 
+
+But, with more research it turns out we can do something like this: 
+
+```
+app = FastAPI()
+
+include_routers(app);
+add_exception_handlers(app);
+```
+
+And have seperate files for include_routers and add_exception_handlers
+
+
+What exactly is meant by Performance:
+
+Does depend on server that is used, but generally when looking at responses per second and 20 queries per request, here are the results: 
+
+| Framework  | # of responses | 
+| ------------- | ------------- |
+| Django  | 1643  |  
+| Flask |  6542 |  
+| FAST API | 12774  | 
+
+Results were very similar accross sources, with a generall consensus favouring FAST API for when performance of requests is preferred, but it will vary across servers.
+
+
+FAST API demo:
+
+Create a more advanced app with FAST API to see size of main file, and testing/debugging. demo now
+
+
+Django Migrations: 
+
+As stated before, migrations are built in to Django and a major Pro for using it. 
+Django has the following built-in functions: 
+
+migrate, which is responsible for applying and unapplying migrations.
+makemigrations, which is responsible for creating new migrations based on the changes you have made to your models.
+sqlmigrate, which displays the SQL statements for a migration.
+showmigrations, which lists a project’s migrations and their status.
+
+PostgreSQL, MySQL, and SQLite are the most compatible DB's with Django migrations. Django can still work with many other supported ones.
+
+Code structure and flexibility:
+
+Flask and FAST API are very flixible, while Django sacrifices flexibility at the expense of having many built-in features (admin, migrations, etc)
+The increased flexibility can result in more to maintain, and more setup time depending on the complexibity of the application. However, Django can seem more complicated at a 'hello world' level compared to flask and FAST API
+
 
 
 **Running Apps:**

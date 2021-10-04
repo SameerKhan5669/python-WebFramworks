@@ -1,12 +1,39 @@
-from fastapi import FastAPI
+from fastapi import FastAPI 
+from pydantic import BaseModel
 
-# Creating a fast api instance
+import requests
+
 app = FastAPI()
 
+db = []
 
-# this function handles all requests to the route "/"
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+class City(BaseModel):
+    name: str
+    timezone: str
 
-# To run: $uvicorn main:app --reload;   
+@app.get('/')
+def index():
+    return {'key' : 'value'}
+
+@app.get('/cities')
+def get_cities():
+    results = []
+    for city in db:
+        results.append({'name' : city['name'], 'timezone': city['timezone']})
+    return results
+
+@app.get('/cities/{city_id}')
+def get_city(city_id: int):
+    city = db[city_id-1]
+    
+    return {'name' : city['name'], 'timezone': city['timezone']}
+
+@app.post('/cities')
+def create_city(city: City):
+    db.append(city.dict())
+    return db[-1]
+
+@app.delete('/cities/{city_id}')
+def delete_city(city_id: int):
+    db.pop(city_id-1)
+    return {}
